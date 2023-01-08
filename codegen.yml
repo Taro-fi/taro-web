@@ -1,0 +1,11 @@
+overrideExisting: true
+schema: 'https://api.thegraph.com/subgraphs/name/muffinfi/muffin-mainnet'
+documents: 'src/**/!(*.d).{ts,tsx}'
+generates:
+  ./src/state/data/generated.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-rtk-query:
+          importBaseApiFrom: './slice'
+          exportHooks: true
